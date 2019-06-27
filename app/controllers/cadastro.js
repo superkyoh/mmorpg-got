@@ -16,13 +16,13 @@ module.exports.cadastrar = function (application, req, res) {
         res.render('cadastro', {validacao: erros, dadosForm: dadosForm});
         return;
     }
-
+    
     var connection = application.config.dbConnection;
 
     var UsuariosDAO = new application.app.models.UsuariosDAO(connection);
     var JogoDAO = new application.app.models.JogoDAO(connection);
 
     UsuariosDAO.inserirUsuario(dadosForm);
-    JogoDAO.gerarParametros(dadosForm.usuario)
+    JogoDAO.gerarParametros(dadosForm.usuario, res)
 
 }

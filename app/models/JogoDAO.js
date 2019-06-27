@@ -5,7 +5,7 @@ function JogoDAO(connection){
 
 }
 
-JogoDAO.prototype.gerarParametros = function(usuario){
+JogoDAO.prototype.gerarParametros = function(usuario, res){
     this._connection.open(function(err, mongoclient){
         mongoclient.collection("jogo", function(err, collection){
             collection.insert({
@@ -16,8 +16,10 @@ JogoDAO.prototype.gerarParametros = function(usuario){
                 sabedoria: Math.floor(Math.random() * 1000),
                 comercio: Math.floor(Math.random() * 1000),
                 magia: Math.floor(Math.random() * 1000)
+            }, function(err, result){
+                res.redirect("/?msg=Sucesso");
+                mongoclient.close();
             });
-            mongoclient.close();
         });
     });
 }

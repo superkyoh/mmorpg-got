@@ -1,5 +1,9 @@
 module.exports.index = function(application, req, res){
-    res.render('index', {validacao:{}});
+    var msg = '';
+    if(req.query.msg !== ''){
+        msg = req.query.msg;
+    }
+    res.render('index', {validacao:{}, msg:msg});
 }
 
 module.exports.autenticar = function(application, req, res){

@@ -29,6 +29,12 @@
 		<nav class="navbar navbar-default navbar-static-top">
 			<div class="container">
 
+				<% if(msg == 'Sucesso') {%>
+					<div class="alert alert-success"  id="msg">
+						<strong>Cadastro realizado com sucesso! Agora é só fazer o login e aproveitar o jogo!</strong>
+					</div>
+				<% } %>
+
 				<% if(validacao.length > 0) { %>
 					<div class="alert alert-danger">
 						<strong>Atenção!</strong>
