@@ -1,1 +1,1 @@
-# mmorpg-got
+# rpg-got
